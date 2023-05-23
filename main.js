@@ -207,9 +207,60 @@ class Banner extends HTMLElement{
     }
 }
 
+class IntermedioBtns extends HTMLElement{
+    constructor(){
+        super();
+        this._shadowRoot = this.attachShadow({mode:'open'});
+    }
+    connectedCallback(){
+        this.render();
+    }
+    render(){
+        this.shadowRoot.innerHTML = `
+            <section class="seccion_intermedia">
+                <button class="seccion_intermedia-btn">Vegetable</button>
+                <button class="seccion_intermedia-btn">Meat</button>
+                <button class="seccion_intermedia-btn">Asian</button>
+            </section>
+            ${this.getStyle()};
+        `;
+    }
+    getStyle(){
+        return `
+        <style>
+            .seccion_intermedia{
+                width: 100vw;
+                height: 9vh;
+                border: 1px solid black;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+            .seccion_intermedia-btn{
+                width: 20vw;
+                height: 3.8vh; 
+                font-size: 1.6rem;
+                color: #fff;
+                background-color:#01c2b9;
+                border:none;
+                border-radius: 0.8rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                transition: 1s;
+            }
+            .seccion_intermedia-btn:hover{
+                background-color: #0073f1;
+            }
+        </style>
+        `;
+    }
+    
+}
 
 
-
+customElements.define('mis-btns',IntermedioBtns)
 customElements.define('mi-banner', Banner);
 customElements.define('mi-navbar', NavBar);
 
