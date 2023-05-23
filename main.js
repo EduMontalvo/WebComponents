@@ -9,21 +9,22 @@ class NavBar extends HTMLElement {
     render() {
         this._shadowRoot.innerHTML = `
         <nav class="nav_bar">
-                <a href="#" class="nav_bar-menu">
-                    <span class="material-symbols-outlined">Menu</span>
+            <a href="#" class="nav_bar-menu">
+                <span class="material-symbols-outlined">menu</span>
+            </a>
+            <div class="nav_bar-logo">
+                <p>Little</p>
+                <p>Lemmon</p>
+            </div>
+            <div class="nav_bar-login-icon">
+                <a href="#">Login</a>
+                <a href="#">
+                    <span class="material-symbols-outlined">shopping_cart
+                    </span>
                 </a>
-                <div class="nav_bar-logo">
-                    <p>Little</p>
-                    <p>Lemmon</p>
-                </div>
-                <div class="nav_bar-login-icon">
-                    <a href="#">Login</a>
-                    <a href="#">
-                        <span class="material-symbols-outlined">shopping_cart
-                        </span>
-                    </a>
-                </div>
+            </div>
         </nav>
+
         ${this.getStyle()}
         `;
 
@@ -31,17 +32,6 @@ class NavBar extends HTMLElement {
     getStyle(){
         return `
         <style>
-            *{
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
-            html{
-                font-size: 62.5%;
-                font-family: 'Inter', sans-serif;
-                /* height: 85rem;
-                width: 39rem; */
-            }
             .nav_bar{
                 font-size: 1.5rem;
                 padding: 1rem;
@@ -58,7 +48,7 @@ class NavBar extends HTMLElement {
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
-                width: 15%;
+                width: 35%;
             }
             .nav_bar-logo p:first-child{
                 color: #0073f1;
@@ -71,7 +61,7 @@ class NavBar extends HTMLElement {
                 font-size: 2rem;
             }
             .nav_bar-login-icon{
-                width: 20%;
+                width: 25%;
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
@@ -80,52 +70,7 @@ class NavBar extends HTMLElement {
                 text-decoration: none;
                 color: #0073f1;
             }
-            .seccion_banner{
-                height: 40vh;
-                width: 100vw;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                align-items: start;
-                border:1px solid black;
-            }
-            .seccion_banner img{
-                position: absolute;
-                /* object-fit: contain; */
-                width: 100%;
-                height: 40vh;
-                object-fit: cover;
-                /* opacity: 0.5; */
-                z-index: 0;
-            }
-            .seccion_banner h2{
-                color: #fff;
-                margin-left: 1rem;
-                font-size: 3rem;
-                z-index: 1;
-            }
-            .seccion_banner p{
-                color: #fff;
-                margin-left: 1rem;
-                font-size: 2rem;
-                z-index: 1;
-            }
-            .seccion_banner button{
-                background-color: #01c2b9;
-                color:#fff;
-                margin-left: 1rem;
-                z-index: 1;
-                font-size: 2rem;
-                border:none;
-                border-radius: 0.6rem;
-                width: 11rem;
-                height: 2.8rem;
-                cursor: pointer;
-                transition: 1s;
-            }
-            .seccion_banner button:hover{
-                background-color: #0073f1;
-            }
+            
             .seccion_intermedia{
                 width: 100vw;
                 height: 9vh;
@@ -182,10 +127,89 @@ class NavBar extends HTMLElement {
                 display: inline;
                 font-size: 2rem;
             }
+            
         </style>
         `;
     }
 }
 
+
+class Banner extends HTMLElement{
+    constructor(){
+        super();
+        this._shadowRoot = this.attachShadow({mode:'open'})
+    }
+    connectedCallback(){
+        this.render();
+    }
+    render(){
+        this._shadowRoot.innerHTML = `
+        <section class="seccion_banner">
+            <img src="assets/background.jpg" alt="Imagen de un postre">
+            <h2>Meal</h2>
+            <p>Delicious</p>
+            <button>Reserva</button>
+        </section>
+        ${this.getStyle()}
+        `;
+    }
+    getStyle(){
+        return `
+        <style>
+            .seccion_banner{
+                height: 40vh;
+                width: 100vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: start;
+                border:1px solid black;
+            }
+            .seccion_banner img{
+                position: absolute;
+                /* object-fit: contain; */
+                width: 100%;
+                height: 40vh;
+                object-fit: cover;
+                /* opacity: 0.5; */
+                z-index: 0;
+            }
+            .seccion_banner h2{
+                color: #fff;
+                margin-left: 1rem;
+                font-size: 3rem;
+                z-index: 1;
+            }
+            .seccion_banner p{
+                color: #fff;
+                margin-left: 1rem;
+                font-size: 2rem;
+                z-index: 1;
+            }
+            .seccion_banner button{
+                background-color: #01c2b9;
+                color:#fff;
+                margin-left: 1rem;
+                z-index: 1;
+                font-size: 2rem;
+                border:none;
+                border-radius: 0.6rem;
+                width: 11rem;
+                height: 2.8rem;
+                cursor: pointer;
+                transition: 1s;
+            }
+            .seccion_banner button:hover{
+                background-color: #0073f1;
+            }
+        </style>
+        `;
+    }
+}
+
+
+
+
+customElements.define('mi-banner', Banner);
 customElements.define('mi-navbar', NavBar);
 
