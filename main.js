@@ -97,36 +97,7 @@ class NavBar extends HTMLElement {
                 background-color: #0073f1;
             }
             
-            .seccion_final{
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                align-items: center;
-                width: 100vw;
-                height: 45vh;
-                padding: 1rem;
-            }
-            .seccion_final-bloque{
-                width: 100%;
-                height: 13vh;
-                display: flex;
-            }
-            .seccion_final-bloque img{
-                width: 40%;
-                border:1px solid black;
-                object-fit: cover;
-            }
-            .seccion_final-texto{
-                width: 60%;
-                display: flex;
-                align-items: center;
-                padding: 1rem;
-                border:1px solid black;
-            }
-            .seccion_final-texto p{
-                display: inline;
-                font-size: 2rem;
-            }
+            
             
         </style>
         `;
@@ -259,8 +230,79 @@ class IntermedioBtns extends HTMLElement{
     
 }
 
+class SeccionFinal extends HTMLElement{
+    constructor(){
+        super();
+        this._shadowRoot = this.attachShadow({mode: 'open'});
+    }
+    connectedCallback(){
+        this.render();
+    }
+    render(){
+        this._shadowRoot.innerHTML = `
+            <section class="seccion_final">
+                <article class="seccion_final-bloque">
+                    <img src="/assets/vegetable.jpg" alt="">
+                    <div class="seccion_final-texto">
+                        <p>Test the flawor of the best vegetables in town</p>
+                    </div>
+                </article>
+                <article class="seccion_final-bloque">
+                    <img src="/assets/meat.jpg" alt="">
+                    <div class="seccion_final-texto">
+                        <p>Test the flawor of the best meat in town</p>
+                    </div>
+                </article>
+                <article class="seccion_final-bloque">
+                    <img src="/assets/asian.jpg" alt="">
+                    <div class="seccion_final-texto">
+                        <p>Test the flawor of the best asian food in town</p>
+                    </div>
+                </article>
+            </section>
+            ${this.getStyle()}
+        `;
+    }
+    getStyle(){
+        return `
+        <style>
+            .seccion_final{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                width: 100vw;
+                height: 45vh;
+                padding: 1rem;
+            }
+            .seccion_final-bloque{
+                width: 100%;
+                height: 13vh;
+                display: flex;
+            }
+            .seccion_final-bloque img{
+                width: 40%;
+                border:1px solid black;
+                object-fit: cover;
+            }
+            .seccion_final-texto{
+                width: 60%;
+                display: flex;
+                align-items: center;
+                padding: 1rem;
+                border:1px solid black;
+            }
+            .seccion_final-texto p{
+                display: inline;
+                font-size: 2rem;
+            }
+        </style>
+        `;
+    }
+}
 
-customElements.define('mis-btns',IntermedioBtns)
+customElements.define("mi-seccion", SeccionFinal);
+customElements.define('mis-btns',IntermedioBtns);
 customElements.define('mi-banner', Banner);
 customElements.define('mi-navbar', NavBar);
 
