@@ -24,12 +24,11 @@ class NavBar extends HTMLElement {
                 </a>
             </div>
         </nav>
-
         ${this.getStyle()}
         `;
 
     }
-    getStyle(){
+    getStyle() {
         return `
         <style>
             .nav_bar{
@@ -105,15 +104,15 @@ class NavBar extends HTMLElement {
 }
 
 
-class Banner extends HTMLElement{
-    constructor(){
+class Banner extends HTMLElement {
+    constructor() {
         super();
-        this._shadowRoot = this.attachShadow({mode:'open'})
+        this._shadowRoot = this.attachShadow({ mode: 'open' })
     }
-    connectedCallback(){
+    connectedCallback() {
         this.render();
     }
-    render(){
+    render() {
         this._shadowRoot.innerHTML = `
         <section class="seccion_banner">
             <img src="assets/background.jpg" alt="Imagen de un postre">
@@ -124,7 +123,7 @@ class Banner extends HTMLElement{
         ${this.getStyle()}
         `;
     }
-    getStyle(){
+    getStyle() {
         return `
         <style>
             .seccion_banner{
@@ -178,15 +177,15 @@ class Banner extends HTMLElement{
     }
 }
 
-class IntermedioBtns extends HTMLElement{
-    constructor(){
+class IntermedioBtns extends HTMLElement {
+    constructor() {
         super();
-        this._shadowRoot = this.attachShadow({mode:'open'});
+        this._shadowRoot = this.attachShadow({ mode: 'open' });
     }
-    connectedCallback(){
+    connectedCallback() {
         this.render();
     }
-    render(){
+    render() {
         this.shadowRoot.innerHTML = `
             <section class="seccion_intermedia">
                 <button class="seccion_intermedia-btn">Vegetable</button>
@@ -196,7 +195,7 @@ class IntermedioBtns extends HTMLElement{
             ${this.getStyle()};
         `;
     }
-    getStyle(){
+    getStyle() {
         return `
         <style>
             .seccion_intermedia{
@@ -227,18 +226,18 @@ class IntermedioBtns extends HTMLElement{
         </style>
         `;
     }
-    
+
 }
 
-class SeccionFinal extends HTMLElement{
-    constructor(){
+class SeccionFinal extends HTMLElement {
+    constructor() {
         super();
-        this._shadowRoot = this.attachShadow({mode: 'open'});
+        this._shadowRoot = this.attachShadow({ mode: 'open' });
     }
-    connectedCallback(){
+    connectedCallback() {
         this.render();
     }
-    render(){
+    render() {
         this._shadowRoot.innerHTML = `
             <section class="seccion_final">
                 <article class="seccion_final-bloque">
@@ -263,7 +262,7 @@ class SeccionFinal extends HTMLElement{
             ${this.getStyle()}
         `;
     }
-    getStyle(){
+    getStyle() {
         return `
         <style>
             .seccion_final{
@@ -301,8 +300,102 @@ class SeccionFinal extends HTMLElement{
     }
 }
 
+class NavBar_Secundario extends HTMLElement {
+    constructor() {
+        super();
+        this._shadowRoot = this.attachShadow({ mode: 'open' });
+    }
+    connectedCallback() {
+        this.render();
+    }
+    render() {
+        this._shadowRoot.innerHTML = `
+        <header>
+            <nav class="nav_bar">
+                <div class="nav_bar-back">
+                    <a href="#">
+                        <span class="material-symbols-outlined">arrow_back_ios</span>
+                        <span>Back</span>
+                    </a>
+                </div>
+                <div class="nav_bar-logo">
+                    <p>Little</p>
+                    <p>Lemmon</p>
+                </div>
+                <div class="nav_bar-login-icon">
+                    <!-- <a href="#">Login</a> -->
+                    <a href="#">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                    </a>
+                </div>
+            </nav>
+        </header>
+        ${this.getStyle()}
+        `;
+    }
+    getStyle(){
+        return `
+            <style>
+                .nav_bar{
+                    font-size: 1.5rem;
+                    padding: 1rem;
+                    width: 100vw;
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .nav_bar-back a{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 1.6rem;
+                    text-decoration: none;
+                }
+                .nav_bar-back{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                /* a{
+                    font-size: 2rem;
+                    display: inline;
+                } */
+                .nav_bar-menu{
+                    width: 15%;
+                    color: #0073f1;
+                }
+                .nav_bar-logo{
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    width: 35%;
+                }
+                .nav_bar-logo p:first-child{
+                    color: #0073f1;
+                    font-weight: bold;
+                    font-size: 1.5rem;
+                }
+                .nav_bar-logo p:nth-child(2){
+                    color: #01c2b9;
+                    font-weight: bold;
+                    font-size: 2rem;
+                }
+                .nav_bar-login-icon{
+                    width: 10%;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                }
+            </style>
+        `;
+    }
+}
+
+
+
+
+customElements.define('mi-navbarsec', NavBar_Secundario);
 customElements.define("mi-seccion", SeccionFinal);
-customElements.define('mis-btns',IntermedioBtns);
+customElements.define('mis-btns', IntermedioBtns);
 customElements.define('mi-banner', Banner);
 customElements.define('mi-navbar', NavBar);
 
