@@ -9,9 +9,9 @@ class NavBar extends HTMLElement {
     render() {
         this._shadowRoot.innerHTML = `
         <nav class="nav_bar">
-            <a href="#" class="nav_bar-menu">
-                <span class="material-symbols-outlined">menu</span>
-            </a>
+            <div href="#" class="nav_bar-menu">
+                <img src="/assets/menu.svg" alt="menu">
+            </div>
             <div class="nav_bar-logo">
                 <p>Little</p>
                 <p>Lemmon</p>
@@ -19,8 +19,7 @@ class NavBar extends HTMLElement {
             <div class="nav_bar-login-icon">
                 <a href="#">Login</a>
                 <a href="#">
-                    <span class="material-symbols-outlined">shopping_cart
-                    </span>
+                    <img class = "icon_style" src="/assets/cart.svg" alt="cart shop">
                 </a>
             </div>
         </nav>
@@ -33,15 +32,16 @@ class NavBar extends HTMLElement {
         <style>
             .nav_bar{
                 font-size: 1.5rem;
-                padding: 1rem;
+                /* padding: 1rem; */
                 width: 100vw;
                 display: flex;
                 justify-content: space-between;
                 border-bottom: 1px solid black;
             }
             .nav_bar-menu{
-                width: 15%;
-                color: #0073f1;
+                display: flex;
+                justify-content: center;
+                padding-left: 1rem;
             }
             .nav_bar-logo{
                 display: flex;
@@ -69,34 +69,6 @@ class NavBar extends HTMLElement {
                 text-decoration: none;
                 color: #0073f1;
             }
-            
-            .seccion_intermedia{
-                width: 100vw;
-                height: 9vh;
-                border: 1px solid black;
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-            }
-            .seccion_intermedia-btn{
-                width: 20vw;
-                height: 3.8vh; 
-                font-size: 1.6rem;
-                color: #fff;
-                background-color:#01c2b9;
-                border:none;
-                border-radius: 0.8rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                cursor: pointer;
-                transition: 1s;
-            }
-            .seccion_intermedia-btn:hover{
-                background-color: #0073f1;
-            }
-            
-            
             
         </style>
         `;
@@ -272,7 +244,7 @@ class SeccionFinal extends HTMLElement {
                 align-items: center;
                 width: 100vw;
                 height: 45vh;
-                padding: 1rem;
+                
             }
             .seccion_final-bloque{
                 width: 100%;
@@ -314,7 +286,7 @@ class NavBar_Secundario extends HTMLElement {
             <nav class="nav_bar">
                 <div class="nav_bar-back">
                     <a href="#">
-                        <span class="material-symbols-outlined">arrow_back_ios</span>
+                    <img class = "icon_style" src="/assets/arrow.svg" alt="back arrow">
                         <span>Back</span>
                     </a>
                 </div>
@@ -325,7 +297,7 @@ class NavBar_Secundario extends HTMLElement {
                 <div class="nav_bar-login-icon">
                     <!-- <a href="#">Login</a> -->
                     <a href="#">
-                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <img class = "icon_style" src="/assets/cart.svg" alt="cart shop">
                     </a>
                 </div>
             </nav>
@@ -333,13 +305,13 @@ class NavBar_Secundario extends HTMLElement {
         ${this.getStyle()}
         `;
     }
-    getStyle(){
+    getStyle() {
         return `
             <style>
                 .nav_bar{
                     font-size: 1.5rem;
                     padding: 1rem;
-                    width: 100vw;
+                    height: 4vh;
                     display: flex;
                     justify-content: space-between;
                 }
@@ -385,17 +357,208 @@ class NavBar_Secundario extends HTMLElement {
                     justify-content: space-around;
                     align-items: center;
                 }
+                .icon_style{
+                    /* color: #0073f1; */
+                }
+            </style>
+        `;
+    }
+}
+class Titulo extends HTMLElement {
+    constructor() {
+        super();
+        this._shadowRoot = this.attachShadow({ mode: 'open' });
+    }
+    connectedCallback() {
+        this.render();
+    }
+    render() {
+        this._shadowRoot.innerHTML = `
+        <div class="contenedor_titulo">
+            <h2>Bienvenido a</h2>
+            <h2>Pequeño Limon</h2>
+        </div>
+        ${this.getStyle()}
+        `;
+    }
+    getStyle() {
+        return `
+        <style>
+            .contenedor{
+                height: 93.98vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                border: 1px solid black;
+            }
+            .contenedor_titulo h2{
+                width: 28.5rem;
+                font-size: 4rem;
+            }
+            .contenedor_titulo h2:nth-child(1){
+                color: #01c2b9;
+            }
+            .contenedor_titulo h2:nth-child(2){
+                color: #0073f1;
+            }
+        </style>
+        `;
+    }
+}
+
+class Bloque extends HTMLElement {
+    constructor() {
+        super();
+        this._shadowRoot = this.attachShadow({ mode: 'open' });
+    }
+    connectedCallback() {
+        this.render();
+    }
+    render() {
+        this._shadowRoot.innerHTML = `
+            <div class="usuario_contrasenha">
+                <section class="contenedor_usuario">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" name="" id="usuario">
+                </section>
+                <section class="contenedor_contraseña">
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" name="" id="contraseña">
+                </section>
+            </div>
+            ${this.getStyle()}
+        `;
+    }
+    getStyle() {
+        return `
+        <style>
+            .usuario_contrasenha{
+                width: 94vw;
+                height: 28vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .contenedor_usuario{
+                width: 90vw;
+                height: 10vh;
+                background-color: #01c2b9;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem;
+                border-radius: 0.6rem;
+            }
+            .contenedor_usuario label{
+                font-size: 2rem;
+                font-weight: bold;
+                color: #fff;
+            }
+            .contenedor_usuario input{
+                width: 50vw;
+                height: 5rem;
+                border:none;
+                border-radius: 0.6rem;
+            }
+            .contenedor_contraseña{
+                width: 90vw;
+                height: 10vh;
+                background-color: #01c2b9;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem;
+                border-radius: 0.6rem;
+            }
+            .contenedor_contraseña label{
+                font-size: 2rem;
+                font-weight: bold;
+                color: #fff;
+            }
+            .contenedor_contraseña input{
+                width: 50vw;
+                height: 5rem;
+                border:none;
+                border-radius: 0.6rem;
+            }
+        </style>
+        `
+    }
+}
+
+class Boton extends HTMLElement {
+    constructor() {
+        super();
+        this._shadowRoot = this.attachShadow({ mode: 'open' });
+    }
+    connectedCallback() {
+        this.render();
+    }
+    render() {
+        this._shadowRoot.innerHTML = `
+            <button class="btn_login">LOGIN</button>
+            ${this.getStyle()}
+        `;
+    }
+    getStyle() {
+        return `
+            <style>
+                .btn_login{
+                    font-size: 2rem;
+                    color: #fff;
+                    background-color: #0073f1;
+                    width: 25vw;
+                    padding: 1rem;
+                    border:none;
+                    border-radius: 0.6rem;
+                    cursor: pointer;
+                    transition: 1s;
+                }
+                .btn_login:hover{
+                    background-color: #01c2b9;
+                }
             </style>
         `;
     }
 }
 
 
+class Registro extends HTMLElement{
+    constructor(){
+        super();
+        this._shadowRoot = this.attachShadow({mode: 'open'});
+    }
+    connectedCallback(){
+        this.render();
+    }
+    render(){
+        this._shadowRoot.innerHTML = `
+            <p class="crearAcc">Sin cuenta? , create una <a href="#">Aqui</a></p>
+            ${this.getStyle()}
+        `;
+    }
+    getStyle(){
+        return `
+            <style>
+                .crearAcc{
+                    font-size: 2rem;
+                    color: #01c2b9;
+                    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                }
+            </style>
+        `;
+    }
+}
 
 
-customElements.define('mi-navbarsec', NavBar_Secundario);
-customElements.define("mi-seccion", SeccionFinal);
-customElements.define('mis-btns', IntermedioBtns);
-customElements.define('mi-banner', Banner);
 customElements.define('mi-navbar', NavBar);
+customElements.define('mi-banner', Banner);
+customElements.define('mis-btns', IntermedioBtns);
+customElements.define("mi-seccion", SeccionFinal);
+customElements.define('mi-navbarsec', NavBar_Secundario);
+customElements.define('mi-titulo', Titulo);
+customElements.define('mi-bloque', Bloque);
+customElements.define('mi-boton', Boton);
+customElements.define('mi-registro', Registro);
 
