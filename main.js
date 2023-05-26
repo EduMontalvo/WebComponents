@@ -524,21 +524,21 @@ class Boton extends HTMLElement {
 }
 
 
-class Registro extends HTMLElement{
-    constructor(){
+class Registro extends HTMLElement {
+    constructor() {
         super();
-        this._shadowRoot = this.attachShadow({mode: 'open'});
+        this._shadowRoot = this.attachShadow({ mode: 'open' });
     }
-    connectedCallback(){
+    connectedCallback() {
         this.render();
     }
-    render(){
+    render() {
         this._shadowRoot.innerHTML = `
             <p class="crearAcc">Sin cuenta? , create una <a href="#">Aqui</a></p>
             ${this.getStyle()}
         `;
     }
-    getStyle(){
+    getStyle() {
         return `
             <style>
                 .crearAcc{
@@ -551,6 +551,67 @@ class Registro extends HTMLElement{
     }
 }
 
+class ResumenBloque extends HTMLElement {
+    constructor() {
+        super();
+        this._shadowRoot = this.attachShadow({ mode: 'open' });
+    }
+    connectedCallback() {
+        this.render();
+    }
+    render() {
+        this._shadowRoot.innerHTML = `
+        <section class="contenedor">
+            <h1 class="titulo">Reservación</h1>
+            <section class="texto">
+                <p>Querido , <strong>usuario</strong> , tu reservación para la mesa 1 , el 23 de abril , ha sido realizada</p>
+            </section>
+            <button class="btn_inicio">INICIO</button>
+        </section>}
+        ${this.getStyle()}
+        `;
+    }
+    getStyle(){
+        return `
+            <style>
+                .contenedor{
+                    height: 64rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    align-items: center;
+                }
+                
+                .titulo{
+                    font-size: 3rem;
+                    margin: 8rem 0 0 0;
+                    color: #01c2b9;
+                }
+                .texto{
+                    width: 80vw;
+                    height: 40vh;
+                }
+                .texto p{
+                    display: inline;
+                    font-size: 2.5rem;
+                    color: #01c2b9;
+                }
+                .texto strong{
+                    color: #0073f1;
+                }
+                .btn_inicio{
+                    width: 40vw;
+                    padding: 0.2rem 1rem;
+                    border:none;
+                    font-size: 3.5rem;
+                    background-color: transparent;
+                    border: 1px #0073f1 solid;
+                    color: #0073f1;
+                }
+            </style>
+        `;
+    }
+}
 
 customElements.define('mi-navbar', NavBar);
 customElements.define('mi-banner', Banner);
@@ -561,4 +622,4 @@ customElements.define('mi-titulo', Titulo);
 customElements.define('mi-bloque', Bloque);
 customElements.define('mi-boton', Boton);
 customElements.define('mi-registro', Registro);
-
+customElements.define('mi-resumenbloque',ResumenBloque)
