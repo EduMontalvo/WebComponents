@@ -69,7 +69,14 @@ class NavBar extends HTMLElement {
                 text-decoration: none;
                 color: #0073f1;
             }
-            
+            @media screen and (min-width:768px) {
+                .nav_bar-login-icon{
+                    width: 12%;
+                }
+                .nav_bar-logo{
+                    width: 20%;
+                }
+            }
         </style>
         `;
     }
@@ -195,6 +202,11 @@ class IntermedioBtns extends HTMLElement {
             .seccion_intermedia-btn:hover{
                 background-color: #0073f1;
             }
+            @media screen and (min-width:768px) {
+                .seccion_intermedia-btn{
+                    margin: auto;
+                }
+            }  
         </style>
         `;
     }
@@ -266,6 +278,37 @@ class SeccionFinal extends HTMLElement {
             .seccion_final-texto p{
                 display: inline;
                 font-size: 2rem;
+            }
+            @media screen and (min-width:768px) {
+                .seccion_final{
+                    flex-direction: row;
+                }
+                .seccion_final-bloque{
+                    width: 100%;
+                    height: 45vh;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .seccion_final-bloque img{
+                    height: 20vh;
+                    width: 25vw;
+                    border:1px solid black;
+                    object-fit: cover;
+                }
+                .seccion_final-texto{
+                    width: 25vw;
+                    display: flex;
+                    align-items: center;
+                    padding: 1rem;
+                    border:1px solid black;
+                    margin-top: 2rem;
+                }
+                .seccion_final-texto p{
+                    display: inline;
+                    font-size: 2rem;
+                }
             }
         </style>
         `;
