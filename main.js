@@ -445,6 +445,14 @@ class Titulo extends HTMLElement {
             .contenedor_titulo h2:nth-child(2){
                 color: #0073f1;
             }
+            @media screen and (min-width:768px){
+                .contenedor_titulo{
+                    text-align: center;
+                }
+                .contenedor_titulo h2{
+                    width: auto;
+                }
+            }
         </style>
         `;
     }
@@ -525,6 +533,36 @@ class Bloque extends HTMLElement {
                 border:none;
                 border-radius: 0.6rem;
             }
+            @media screen and (min-width:768px){
+                .usuario_contrasenha{
+                    justify-content: space-evenly;
+                    align-items: center;
+                }
+                .contenedor_usuario{
+                    width: 50%;
+                    height: 7vh;
+                    justify-content: space-around;
+                }
+                .contenedor_usuario label{
+                    font-weight: normal;
+                }
+                .contenedor_usuario input{
+                    width: 60%;
+                    height: 4rem;
+                }
+                .contenedor_contraseña{
+                    width: 50%;
+                    height: 7vh;
+                    justify-content: space-around;
+                }
+                .contenedor_contraseña label{
+                    font-weight: normal;
+                }
+                .contenedor_contraseña input{
+                    width: 60%;
+                    height: 4rem;
+                }
+            }
         </style>
         `
     }
@@ -560,6 +598,13 @@ class Boton extends HTMLElement {
                 }
                 .btn_login:hover{
                     background-color: #01c2b9;
+                }
+                @media screen and (min-width:768px){
+                    .btn_login{
+                        border-radius: 4rem;
+                        width: 8rem;
+                        height: 8rem;
+                    }
                 }
             </style>
         `;
@@ -650,6 +695,12 @@ class ResumenBloque extends HTMLElement {
                     background-color: transparent;
                     border: 1px #0073f1 solid;
                     color: #0073f1;
+                }
+                @media screen and (min-width:768px){
+                    .btn_inicio{
+                        width: 20vw;
+                        font-size: 2.5rem;
+                    }
                 }
             </style>
         `;
